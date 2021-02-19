@@ -1,5 +1,14 @@
-<h1>Hello</h1>
+<h1>Welcome</h1>
 
-<% @restaurants.each do |r| %>
-  <%= r.name %>
-<% end %>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <%= link_to 'Update', edit_restaurant_path(restaurant) %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="new-restaurant">
+ <%= link_to '➕ Add a new restaurant', new_restaurant_path, class: "btn btn-primary" %>
+</div>
